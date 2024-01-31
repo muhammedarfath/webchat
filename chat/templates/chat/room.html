@@ -29,6 +29,98 @@
     <link rel="stylesheet" href="{% static 'assets/css/app.css'%}">
 </head>
 <body>
+    <style>
+
+        .chat .chat-footer .form {
+            display: flex;
+            display: -webkit-flex;
+            align-items: center;
+            -webkit-align-items: center;
+            position: relative;
+        }
+
+        .chat .chat-footer .form .form-buttons {
+            display: flex;
+            display: -webkit-flex;
+            align-items: center;
+            -webkit-align-items: center;
+            display: flex;
+            align-items: center;
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            -webkit-transform: translateY(-50%);
+            -ms-transform: translateY(-50%);
+        }
+
+        .chat .chat-footer .form .form-buttons .btn {
+            margin-left: 0px;
+            color: #BDBFC7;
+            font-size: 20px;
+            padding: 0;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 10px;
+        }
+
+        .chat .chat-footer .form .form-buttons .btn:last-child {
+            margin-right: 0;
+        }
+
+        .chat .chat-footer .form .specker-col,
+        .chat .chat-footer .form .smile-col,
+        .chat .chat-footer .form .attach-col {
+            position: absolute;
+            right: 70px;
+            top: 50%;
+            transform: translateY(-50%);
+            -webkit-transform: translateY(-50%);
+            -ms-transform: translateY(-50%);
+        }
+
+        .chat .chat-footer .form .specker-col span {
+            color: #5A078B;
+            font-size: 25px;
+        }
+
+        .chat .chat-footer .form .attach-col i,
+        .chat .chat-footer .form .smile-col i {
+            color: #5A078B;
+            font-size: 20px;
+        }
+
+        .chat .chat-footer .form .smile-col i {
+            font-size: 22px;
+        }
+
+        .chat .chat-footer .form .smile-col {
+            right: inherit;
+            left: 15px;
+        }
+
+        .chat .chat-footer .form .attach-col {
+            right: inherit;
+            left: 60px;
+        }
+        {% comment %} .replay {
+            background-color: #5A078B;
+            border-radius: 20px 20px 20px 0;
+            padding: 14px 20px;
+            color: #fff;
+            font-weight: 500;
+
+        }
+        .send {
+            background-color: #E8EFFF;
+            color: #232323;
+            border-radius: 20px 20px 0 20px;
+        }  {% endcomment %}
+    </style>
 
     <!-- Main Wrapper -->
     <div class="main-wrapper">
@@ -39,7 +131,7 @@
             <!-- Left Sidebar Menu -->
             <div class="sidebar-menu">
                 <div class="logo-col">
-                    <a href="index.html"><img src="assets/img/logo.png" alt=""></a>
+                    <a href="index.html"><img src="{% static 'assets/img/logo.png'%}" alt=""></a>
                 </div>
                 <div class="menus-col">
                     <div class="chat-menus">
@@ -97,7 +189,7 @@
                             </li>
                             <li>
                                 <a href="#" class="chat-profile-icon" data-bs-toggle="dropdown">
-                                    <img src="assets/img/avatar/avatar-13.jpg" alt="">
+                                    <img src="{% static 'assets/img/avatar/avatar-13.jpg'%}" alt="">
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-end">
                                     <a href="#" class="dropdown-item dream_profile_menu">Edit Profile <span class="edit-profile-icon"><i class="fas fa-edit"></i></span></a>
@@ -249,7 +341,7 @@
                     </div>
                     <div class="chat-body" id="chat-log">
                         <div class="messages">
-                            <div class="chats">
+                            <div class="chats send">
                                 <div class="chat-avatar">
                                     <img src="{% static 'assets/img/avatar/avatar-8.jpg'%}" class="rounded-circle dreams_chat" alt="image">
                                 </div>
@@ -323,7 +415,7 @@
                     </div>
                 </div>
                 <div class="chat-footer">
-                    <form>
+                    <div class="form">
                         <div class="smile-col">
                             <a href="#"><i class="far fa-smile"></i></a>
                         </div>
@@ -332,14 +424,14 @@
                         </div>
                         <input id="chat-message-input" type="text" class="form-control chat_form" placeholder="Enter Message.....">
                         <div class="form-buttons">
-                            <button  id="chat-message-submit" class="btn send-btn" type="submit">
+                            <button  id="chat-message-submit" value="Send" class="btn send-btn" type="submit">
                                 <span class="material-icons">send</span>
                             </button>
                         </div>
                         <div class="specker-col">
                             <a href="#"><span class="material-icons">settings_voice</span></a>
                         </div>
-                    </form>
+                    </div>
                 </div>
             </div>
             <!-- /Chat -->
@@ -363,7 +455,7 @@
                             <div class="mt-0 right_sidebar_logo">
                                 <div class="text-center mb-2 right-sidebar-profile">
                                     <figure class="avatar avatar-xl mb-3">
-                                        <img src="assets/img/avatar/avatar-2.jpg" class="rounded-circle" alt="image">
+                                        <img src="{% static 'assets/img/avatar/avatar-2.jpg'%}" class="rounded-circle" alt="image">
                                     </figure>
                                     <h5 class="profile-name">Scott Albright</h5>
                                     <div class="online-profile">
@@ -446,7 +538,7 @@
 														<li>
 															<div class="image-download-col">
 																<a href="assets/img/chat-download.jpg" data-fancybox="gallery" class="fancybox">
-																	<img src="assets/img/chat-download.jpg" alt="">
+																	<img src="{% static 'assets/img/chat-download.jpg'%}" alt="">
 																</a>
 																<div class="download-action d-flex align-items-center">
 																	<div><a href="#"><i class="fas fa-cloud-download-alt"></i></a></div>
@@ -457,7 +549,7 @@
 														<li>
 															<div class="image-download-col">
 																<a href="assets/img/chat-download.jpg" data-fancybox="gallery" class="fancybox">
-																	<img src="assets/img/chat-download.jpg" alt="">
+																	<img src="{% static 'assets/img/chat-download.jpg'%}" alt="">
 																</a>
 																<div class="download-action d-flex align-items-center">
 																	<div><a href="#"><i class="fas fa-cloud-download-alt"></i></a></div>
@@ -468,7 +560,7 @@
 														 <li>
 															<div class="image-download-col">
 																<a href="assets/img/chat-download.jpg" data-fancybox="gallery" class="fancybox">
-																	<img src="assets/img/chat-download.jpg" alt="">
+																	<img src="{% static 'assets/img/chat-download.jpg'%}" alt="">
 																</a>
 																<div class="download-action d-flex align-items-center">
 																	<div><a href="#"><i class="fas fa-cloud-download-alt"></i></a></div>
@@ -479,7 +571,7 @@
 														<li>
 															<div class="image-download-col">
 																<a href="assets/img/chat-download.jpg" data-fancybox="gallery" class="fancybox">
-																	<img src="assets/img/chat-download.jpg" alt="">
+																	<img src="{% static 'assets/img/chat-download.jpg'%}" alt="">
 																</a>
 																<div class="download-action d-flex align-items-center">
 																	<div><a href="#"><i class="fas fa-cloud-download-alt"></i></a></div>
@@ -490,7 +582,7 @@
 														 <li>
 															<div class="image-download-col">
 																<a href="assets/img/chat-download.jpg" data-fancybox="gallery" class="fancybox">
-																	<img src="assets/img/chat-download.jpg" alt="">
+																	<img src="{% static 'assets/img/chat-download.jpg'%}" alt="">
 																</a>
 																<div class="download-action d-flex align-items-center">
 																	<div><a href="#"><i class="fas fa-cloud-download-alt"></i></a></div>
@@ -501,7 +593,7 @@
 														<li>
 															<div class="image-download-col">
 																<a href="assets/img/chat-download.jpg" data-fancybox="gallery" class="fancybox">
-																	<img src="assets/img/chat-download.jpg" alt="">
+																	<img src="{% static 'assets/img/chat-download.jpg'%}" alt="">
 																</a>
 																<div class="download-action d-flex align-items-center">
 																	<div><a href="#"><i class="fas fa-cloud-download-alt"></i></a></div>
@@ -713,7 +805,7 @@
                             <ul class="user-list mt-2">
                                 <li class="user-list-item">
                                     <div class="avatar avatar-online">
-                                        <img src="assets/img/avatar/avatar-1.jpg" class="rounded-circle" alt="image">
+                                        <img src="{% static 'assets/img/avatar/avatar-1.jpg'%}" class="rounded-circle" alt="image">
                                     </div>
                                     <div class="users-list-body align-items-center">
                                         <div>
@@ -729,7 +821,7 @@
                                 </li>
                                 <li class="user-list-item">
                                     <div class="avatar avatar-online">
-                                        <img src="assets/img/avatar/avatar-2.jpg" class="rounded-circle" alt="image">
+                                        <img src="{% static 'assets/img/avatar/avatar-2.jpg'%}" class="rounded-circle" alt="image">
                                     </div>
                                     <div class="users-list-body align-items-center">
                                         <div>
@@ -748,7 +840,7 @@
                             <ul class="user-list mt-2">
                                 <li class="user-list-item">
                                     <div class="avatar avatar-online">
-                                        <img src="assets/img/avatar/avatar-3.jpg" class="rounded-circle" alt="image">
+                                        <img src="{% static 'assets/img/avatar/avatar-3.jpg'%}" class="rounded-circle" alt="image">
                                     </div>
                                     <div class="users-list-body align-items-center">
                                         <div>
@@ -764,7 +856,7 @@
                                 </li>
                                 <li class="user-list-item">
                                     <div class="avatar avatar-online">
-                                        <img src="assets/img/avatar/avatar-4.jpg" class="rounded-circle" alt="image">
+                                        <img src="{% static 'assets/img/avatar/avatar-4.jpg'%}" class="rounded-circle" alt="image">
                                     </div>
                                     <div class="users-list-body align-items-center">
                                         <div>
@@ -811,7 +903,7 @@
                             <div class="call-wrapper">
                                 <div class="call-inner">
                                     <div class="call-user">
-                                        <img alt="User Image" src="assets/img/avatar/avatar-8.jpg" class="call-avatar">
+                                        <img alt="User Image" src="{% static 'assets/img/avatar/avatar-8.jpg'%}" class="call-avatar">
                                         <h4>Brietta Blogg <span>video calling</span>
                                         </h4>
                                     </div>
@@ -841,7 +933,7 @@
                             <div class="call-wrapper">
                                 <div class="call-inner">
                                     <div class="call-user">
-                                        <img alt="User Image" src="assets/img/avatar/avatar-8.jpg" class="call-avatar">
+                                        <img alt="User Image" src="{% static 'assets/img/avatar/avatar-8.jpg'%}" class="call-avatar">
                                         <h4>Brietta Blogg <span>voice calling</span>
                                         </h4>
                                     </div>
@@ -864,13 +956,14 @@
 		
     </div>
     {{ room_name|json_script:"room-name" }}
+    {{ username|json_script:"username" }}
     
 
 
     <script src="{% static 'reconnecting-websocket.js' %}"></script>
     <script>
         const roomName = JSON.parse(document.getElementById('room-name').textContent);
-        var username = {{ username }};
+        var username = JSON.parse(document.getElementById('username').textContent);
 
         const chatSocket = new ReconnectingWebSocket(
             'ws://'
@@ -880,27 +973,20 @@
             + '/'
         );
 
+        chatSocket.onopen = function(e) {
+            fetch_messages();
+        }
+
         chatSocket.onmessage = function(e) {
             const data = JSON.parse(e.data);
-            var message = data['message'];
-            var author = message['author'];
-
-            var msgListTag = document.createElement('li');
-            var imgTag = document.createElement('img');
-            var pTag = document.createElement('p');
-
-            pTag.textContent = message.content;
-            imgTag.src = ''
-            
-            if (author === username) {
-                msgListTag.className = 'chats';
-
-            }else {
-                msgListTag.className = 'chats-right'
+            if (data['command'] === 'messages' ) {
+                for (let i=0; i < data['messages'].length; i++) {
+                    createMessage(data['messages'][i]);
+                }
+            } else if (data['command'] === 'new_message'){
+                createMessage(data['message']);
             }
-            msgListTag.appendChild(imgTag);
-            msgListTag.appendChild(pTag);
-            document.querySelector('#chat-log').appendChild(msgListTag);
+
 
         };
 
@@ -920,16 +1006,42 @@
             const message = messageInputDom.value;
             chatSocket.send(JSON.stringify({
                 'message': message,
-                'command':'new_messages'
+                'command':'new_message',
                 'from':username
             }));
             messageInputDom.value = '';
         };
+
+        function fetch_messages() {
+            chatSocket.send(JSON.stringify({'command' : 'fetch_messages'}));
+        }
+
+        function createMessage(data) {
+
+            var author = data['author'];
+
+            var msgListTag = document.createElement('div');
+            var imgTag = document.createElement('img');
+            var pTag = document.createElement('div');
+
+            pTag.textContent = data.content;
+            imgTag.src = ''
+            
+            if (author === username) {
+                msgListTag.className = 'send';
+
+            }else {
+                msgListTag.className = 'replay'
+            }
+            msgListTag.appendChild(imgTag);
+            msgListTag.appendChild(pTag);
+            document.querySelector('#chat-log').appendChild(msgListTag); 
+        }
     </script>
     <!-- /Main Wrapper -->
 	
 	<!-- jQuery -->
-    <script data-cfasync="false" src="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+    {% comment %} <script data-cfasync="false" src="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script> {% endcomment %}
     <script src="{% static 'assets/js/jquery-3.6.0.min.js' %}"></script>
         
     <!-- Bootstrap Core JS -->
